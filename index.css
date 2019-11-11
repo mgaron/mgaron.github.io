@@ -1,8 +1,19 @@
+html {
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 body {
-    background-color: #35528c;
+    background-color: #252526;
     color: #fff;
-    font-family: proxima-nova, sans-serif;
-    font-size: 14px;
+    font-family: chaparral-pro, serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    text-align: center;
+    margin: 0;
+    overflow-y: auto;
 }
 
 h1,
@@ -10,25 +21,120 @@ h2,
 h3,
 h4,
 h5 {
-    font-family: baskerville-urw, serif;
+    font-family: chaparral-pro, serif;
     margin: 0.2rem;
 }
 
-h2,
-h3,
-h4 {
-    font-weight: 400;
-}
-
 h1 {
-    font-size: 5rem;
+    font-weight: 700;
+    font-size: 3rem;
 }
 
 h2 {
-    font-size: 3rem;
+    font-weight: 400;
+    font-size: 2rem;
 }
 
 a,
 a:visited {
     color: #fff;
+}
+
+.button {
+    padding: 0.75rem 2rem;
+    border: 2px solid #fff;
+    border-radius: 0.5rem;
+    font-family: proxima-nova, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.button:hover,
+.button:active {
+    background-color: #333;
+}
+
+@-webkit-keyframes hvr-pop {
+    50% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+}
+@keyframes hvr-pop {
+    50% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+}
+
+.hvr-pop {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.hvr-pop:hover,
+.hvr-pop:focus,
+.hvr-pop:active {
+    -webkit-animation-name: hvr-pop;
+    animation-name: hvr-pop;
+    -webkit-animation-duration: 0.2s;
+    animation-duration: 0.2s;
+    -webkit-animation-timing-function: linear;
+    animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    font-family: proxima-nova, sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    font-style: normal;
+    margin-bottom: 1rem;
+    max-width: 100vw;
+    padding: 1rem;
+    align-items: center;
+}
+
+.menu .icon {
+    display: block;
+    margin-right: 1rem;
+}
+
+.menu .title {
+}
+
+.main {
+    padding: 1rem;
+}
+
+.intro-text {
+    margin: 3rem 0;
+}
+
+.social {
+    margin: 3rem 0 5rem;
+    padding: 2rem 0;
+}
+
+.network {
+    display: inline-block;
+}
+
+.network + .network {
+    margin-left: 3rem;
+}
+
+.cta {
+    margin-bottom: 1rem;
 }
