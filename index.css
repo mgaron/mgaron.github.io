@@ -124,6 +124,8 @@ a:visited {
 .menu .icon {
     display: block;
     margin-right: 1rem;
+    width: 24px;
+    height: 24px;
 }
 
 .menu .title {
