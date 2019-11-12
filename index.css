@@ -318,8 +318,8 @@ a:visited {
 @media only screen and (min-width: 1024px) {
     .main {
         background-image: url('images/hero-dork-1160w.jpg');
-        height: 1024px;
-        background-position-y: -100px;
+        height: 960px;
+        background-position-y: -283px;
     }
 
     .menu {
