@@ -102,13 +102,18 @@
                 The struggle here is to balance confidence, modesty, and a healthy dose of self-awareness. I've worked
                 with tons of developers who are more skilled than I am in one or more parts of the stack. Mostly what I
                 bring is the ability to focus my teammates' skills on the problems most pressing to the business. But
-                that's not why you're here. You want a list! Hopefully you want a list of buzzwords!
+                that may not be why you're here. Maybe you want a list! Or maybe I'm throwing you a softball if we want
+                to talk about browser performance.
             </p>
             <div class="skill-list">
-                <div class="loading">
+                <div class="list-tools">
+                    <input id="list-search" class="input-search" placeholder="Search the list" value="" />
+                </div>
+                <div id="skill-list-loading" class="loading">
                     <img class="icon" src="images/stopwatch.svg" alt="stopwatch" />
                     <h5>Fetching skill list</h5>
                 </div>
+                <div id="skill-list-results" class="results"></div>
             </div>
         </div>
         <div class="section full-width">

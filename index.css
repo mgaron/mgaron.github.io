@@ -193,6 +193,19 @@ a:visited {
     text-align: left;
 }
 
+.list-tools {
+    margin-bottom: 1rem;
+}
+
+.input-search {
+    border: none;
+    font-family: proxima-nova, sans-serif;
+    font-size: 1rem;
+    outline: none;
+    padding: 0.5rem;
+    width: 24rem;
+}
+
 .skill-list .loading {
     display: flex;
     flex-direction: row;
