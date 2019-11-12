@@ -218,6 +218,10 @@ a:visited {
     align-self: center;
 }
 
+.skill-list .skill {
+    text-align: left;
+}
+
 .background-image {
     width: 100%;
 }
