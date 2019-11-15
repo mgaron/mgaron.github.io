@@ -105,6 +105,12 @@
     ];
 
     /**
+     * Lots of ways to make search case insensitive. This is a little silly but only
+     * happens once per page load.
+     */
+    skills.forEach(skill => (skill.searchable = skill.title.toLowerCase()));
+
+    /**
      * Render the skill list as filtered by optional search text provided by user.
      * This is not a good way to do this. It's hitting the DOM with a hammer and will
      * be unacceptably slow for any list that isn't super short.
@@ -119,17 +125,25 @@
             }
 
             // rebuild the list based on current search and filter
-            let skillList = '<ul>';
+            let skillList = '<div class="results">';
             let matchingSkills = null;
             if (search && search.length > 0) {
-                matchingSkills = skills.filter(skill => skill.title.indexOf(search) !== -1);
+                const lowerCaseSearch = search.toLowerCase();
+                matchingSkills = skills.filter(skill => skill.searchable.indexOf(lowerCaseSearch) !== -1);
             } else {
                 matchingSkills = skills;
             }
             matchingSkills.forEach(skill => {
-                skillList += `<li class="skill">${skill.title}</li>`;
+                skillList +=
+                    '<div class="skill">' +
+                    `<div class="title">${skill.title}</div>` +
+                    '<div class="deets">' +
+                    `<div class="last">Used in ${skill.last}</div><div class="years">${skill.last -
+                        skill.start}y</div>` +
+                    '</div>' +
+                    '</div>';
             });
-            skillList += '</ul>';
+            skillList += '</div>';
             listResults.innerHTML = skillList;
 
             const loading = document.getElementById('skill-list-loading');
