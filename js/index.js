@@ -153,11 +153,64 @@
         }
     }
 
-    // Initial render of the list
+    /**
+     * I wanted to throw in some insta photos but didn't want to put effort
+     * into creating a formal fb app, access key, etc. Someone already did the
+     * heavy lifting, so let's build on their work:
+     *
+     * https://codelike.pro/fetch-instagram-posts-from-profile-without-__a-parameter/
+     */
+    async function fetchInstagramPhotos() {
+        const imageURLs = [];
+
+        try {
+            const instaSource = await axios.get('https://www.instagram.com/mikethegaron/');
+            const jsonObject = instaSource.data
+                .match(/<script type="text\/javascript">window\._sharedData = (.*)<\/script>/)[1]
+                .slice(0, -1);
+
+            const userInfo = JSON.parse(jsonObject);
+            const mediaArray = userInfo.entry_data.ProfilePage[0].graphql.user.edge_owner_to_timeline_media.edges.splice(
+                0,
+                10
+            );
+            for (let media of mediaArray) {
+                const node = media.node;
+
+                // Only keep image nodes
+                if (node.__typename && node.__typename !== 'GraphImage') {
+                    continue;
+                }
+
+                imageURLs.push(node.thumbnail_src);
+            }
+        } catch (e) {
+            console.error('Unable to retrieve photos. Reason: ' + e.toString());
+        }
+
+        if (imageURLs.length > 0) {
+            const imgContainer = document.getElementById('insta-container');
+            imageURLs.forEach(imgURL => {
+                let img = document.createElement('img');
+                img.src = imgURL;
+                img.width = 128;
+                img.height = 128;
+                img.className = 'insta';
+                imgContainer.appendChild(img);
+            });
+        }
+    }
+
+    // Initial render of the skill list
     renderSkillList();
 
+    // Make search functional
     const searchInput = document.getElementById('list-search');
-    searchInput.addEventListener('keyup', e => {
-        renderSkillList(searchInput.value);
-    });
+    if (searchInput) {
+        searchInput.addEventListener('keyup', e => {
+            renderSkillList(searchInput.value);
+        });
+    }
+
+    fetchInstagramPhotos();
 })();

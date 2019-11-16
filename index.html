@@ -8,7 +8,8 @@
         <!-- <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" /> -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="theme-color" content="#000000" />
-        <script async src="index.js"></script>
+        <script async src="js/axios.min.js"></script>
+        <script async src="js/index.js"></script>
     </head>
     <body>
         <div class="menu">
@@ -116,16 +117,9 @@
                 <div id="skill-list-results"></div>
             </div>
         </div>
-        <div class="section full-width">
-            <img
-                srcset="images/sunrise-300w.jpg 320w, images/sunrise-400w.jpg 480w, images/sunrise-500w.jpg 800w"
-                sizes="(max-width: 320px) 280px,
-                        (max-width: 480px) 440px,
-                        800px"
-                src="images/sunrise-1024w.jpg"
-                alt="Sunrise on Mission Peak"
-                class="background-image"
-            />
+        <div class="section recent-images">
+            <h3>Recent Images</h3>
+            <div id="insta-container" class="image-list"></div>
         </div>
         <div class="footer">
             <div class="row">
