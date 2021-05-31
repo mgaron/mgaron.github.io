@@ -1,13 +1,13 @@
 /* Mobile first  styles */
 html {
-    min-height: 100%;
+    min-height: 95%;
     padding: 1rem;
     margin: 0;
     scroll-behavior: smooth;
 }
 
 body {
-    background-color: #252526;
+    background-color: #030304;
     color: #fff;
     font-family: chaparral-pro, serif;
     font-weight: 400;
@@ -54,4 +54,58 @@ h5 {
 a,
 a:visited {
     color: #fff;
+}
+
+.selfie {
+    position: relative;
+    width: 100vw;
+    height: 520px;
+    top: -82px;
+    object-fit: cover;
+}
+
+.bezel {
+    clip-path: polygon(19% 3%, 88% 3%, 98% 13%, 98% 86%, 87% 94%, 21% 94%, 5% 85%, 5% 13%);
+    background-color: #030304;
+    color: white;
+    z-index: 100;
+}
+
+.data {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 30rem;
+    margin: 2rem;
+    font-size: 22px;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 6rem 0;
+    width: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.controls .group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.tech-icon {
+    width: 14px;
+    height: 14px;
+}
+
+.tech-icon + .tech-icon {
+    margin-top: 1rem;
 }
