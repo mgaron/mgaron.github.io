@@ -1,0 +1,10 @@
+{
+  "id": "/mortal/",
+  "name": "Mortal Discus",
+  "short_name": "Mortal Discus",
+  "start_url": "/mortal/",
+  "scope": "/mortal/",
+  "display": "standalone",
+  "background_color": "#09060c",
+  "theme_color": "#09060c"
+}
