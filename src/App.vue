@@ -42,8 +42,8 @@ function titleText(title: string) {
     <main>
       <section class="intro" aria-labelledby="page-title">
         <p class="eyebrow"><span class="status-dot"></span> MIKE GARON / EXPERIMENTS</p>
-        <h1 id="page-title">Small ideas.<br><span>Room to play.</span></h1>
-        <p class="intro-copy">Games, tools, and other little curiosities.<br>Pick something. See where it takes you.</p>
+        <h1 id="page-title">Writing code is cheap.<br><span>The consequences may not be.</span></h1>
+        <p class="intro-ctpy">Silly experiments to test your patience and my random ideas.</p>
       </section>
       <section aria-label="Applications" class="collection">
         <div class="collection-toolbar">
