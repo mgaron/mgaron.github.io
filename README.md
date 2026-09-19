@@ -35,4 +35,18 @@ npm run preview
 
 The build writes the directory and all microapplication files into `dist/`, preserving their absolute paths. Source application folders are never emptied by the build.
 
-The included GitHub Pages workflow builds and deploys on pushes to `main` or `master`. In repository Settings → Pages, select **GitHub Actions** as the build source. Existing microapplication publishing scripts can keep copying their builds into their respective folders and committing them; each push then rebuilds the catalog and the complete Pages artifact.
+The included GitHub Pages workflow builds and deploys on pushes to `main`. In repository Settings → Pages, select **GitHub Actions** as the build source. Existing microapplication publishing scripts can keep copying their builds into their respective folders and committing them; each push then rebuilds the catalog and the complete Pages artifact.
+
+
+The default branch is `main`. The `github-pages` environment permits deployments from `main` only. Microapplication publishers should clone the remote default branch and push its current branch (as the Mortal publisher does), or explicitly target `main`.
+
+To update an existing checkout that still uses the former branch name:
+
+```sh
+git fetch origin
+git branch -m master main
+git branch --set-upstream-to=origin/main main
+git remote set-head origin -a
+```
+
+Update any separate Fall25 or Discus publishing checkout or automation that explicitly targets the former branch before publishing again.
