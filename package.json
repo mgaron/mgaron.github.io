@@ -1,0 +1,25 @@
+{
+  "name": "mgaron-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/catalog.mjs && vite --host 127.0.0.1",
+    "build": "node scripts/catalog.mjs && vue-tsc --noEmit && vite build && node scripts/copy-apps.mjs",
+    "preview": "vite preview --host 127.0.0.1",
+    "screenshots": "node scripts/screenshots.mjs",
+    "test": "node --test scripts/catalog.test.mjs"
+  },
+  "dependencies": { "vue": "^3.5.13" },
+  "devDependencies": {
+    "@types/node": "^24.13.6",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.15",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.3",
+    "vue-tsc": "^2.1.10",
+    "playwright": "^1.55.0"
+  }
+}
