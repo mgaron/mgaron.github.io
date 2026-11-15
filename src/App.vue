@@ -2,8 +2,8 @@
 import { computed, ref } from 'vue'
 import catalog from './catalog.json'
 
-type SortOrder = 'random' | 'newest' | 'oldest' | 'title'
-const sort = ref<SortOrder>('random')
+type SortOrder = 'featured' | 'random' | 'newest' | 'oldest' | 'title'
+const sort = ref<SortOrder>('featured')
 function shuffle<T>(items: T[]): T[] {
   const result = [...items]
   for (let i = result.length - 1; i > 0; i--) {
@@ -14,6 +14,7 @@ function shuffle<T>(items: T[]): T[] {
 }
 const randomOrder = ref(shuffle(catalog))
 const apps = computed(() => {
+  if (sort.value === 'featured') return catalog
   if (sort.value === 'random') return randomOrder.value
   return [...catalog].sort((a, b) => {
     if (sort.value === 'title') return a.title.localeCompare(b.title)
@@ -51,6 +52,7 @@ function titleText(title: string) {
           <div class="sort-control flex items-center">
             <label for="sort">Sort by</label>
             <select id="sort" v-model="sort" @change="changeSort">
+              <option value="featured">Featured</option>
               <option value="random">Random</option>
               <option value="newest">Newest first</option>
               <option value="oldest">Oldest first</option>
@@ -69,7 +71,7 @@ function titleText(title: string) {
               </div>
               <div class="card-bottom">
                 <span class="build-date"><span class="meta-label">BUILT</span><time :datetime="app.date || undefined">{{ formatDate(app.date) }}</time></span>
-                <span class="build-hash" title="Latest publish commit for this application"><span class="meta-label">BUILD</span><code>{{ app.hash || 'unpublished' }}</code></span>
+                <span class="build-hash" title="Source build or latest publish commit for this application"><span class="meta-label">BUILD</span><code>{{ app.hash || 'unpublished' }}</code></span>
               </div>
             </a>
           </li>

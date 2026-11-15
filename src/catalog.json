@@ -16,6 +16,14 @@
     "date": "2025-12-24T18:41:58-05:00"
   },
   {
+    "id": "toxic-teammate",
+    "title": "Toxic Teammate",
+    "path": "/toxic-teammate/",
+    "image": "/previews/toxic-teammate.jpg",
+    "hash": "9000a2c",
+    "date": "2026-11-14"
+  },
+  {
     "id": "mortal",
     "title": "Mortal Discus",
     "path": "/mortal/",
