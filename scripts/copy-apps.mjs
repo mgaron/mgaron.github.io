@@ -17,3 +17,7 @@ catch (error) { if (error.code !== 'ENOENT') throw error }
 // Preserve nested game releases such as /game/royale/ in the Pages artifact.
 try { await cp('game', 'dist/game', { recursive: true }) }
 catch (error) { if (error.code !== 'ENOENT') throw error }
+
+// Preserve nested game releases such as /game/royale/ in the Pages artifact.
+try { await cp('game', 'dist/game', { recursive: true }) }
+catch (error) { if (error.code !== 'ENOENT') throw error }
